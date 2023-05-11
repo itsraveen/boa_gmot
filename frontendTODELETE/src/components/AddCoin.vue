@@ -1,15 +1,15 @@
 <template>
       <div class="container">
           <form id="myform">
-            <h1 id="header"> Add Coins </h1>
+            <h1 id="header"> Input/Update Details</h1>
 
             <div class="formli">
-                <label for="coin1"> Coin Name: </label>
-                <input type="text" id="coin1" required="" placeholder="Enter Coin"> <br><br>
-                <label for="ticker"> Ticker: </label>
-                <input type="text" id="ticker" required="" placeholder="Valid Ticker"> <br><br>
-                <label for="buy1"> Buy Price: </label>
-                <input type="number" id="buy1" required="" placeholder="Enter Buy Price"> <br><br>
+                <label for="client1"> Client Name: </label>
+                <input type="text" id="client1" required="" placeholder="Enter Client Name"> <br><br>
+                <label for="commdiff"> Comm Diff: </label>
+                <input type="text" id="commdiff" required="" placeholder="Enter Commission Difference"> <br><br>
+                <label for="grossdiff"> Gross Amt Diff: </label>
+                <input type="number" id="grossdiff" required="" placeholder="Enter Gross Amount Difference"> <br><br>
                 <label for="quant1"> Buy Quantity: </label>
                 <input type="number" id="quant1" required="" placeholder="Enter Buy Quantity"> <br><br>
                 
@@ -39,9 +39,9 @@ export default {
         async savetofs() {
             const auth = getAuth();
             this.email = auth.currentUser.email;
-            this.a = document.getElementById("coin1").value;
-            this.b = document.getElementById("ticker").value;
-            this.c = document.getElementById("buy1").value;
+            this.a = document.getElementById("client1").value;
+            this.b = document.getElementById("commdiff").value;
+            this.c = document.getElementById("grossdiff").value;
             this.d = document.getElementById("quant1").value;
 
             alert("Saving your data for Coin: " + this.a);
