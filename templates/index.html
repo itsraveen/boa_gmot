@@ -54,12 +54,18 @@
     </div>
     <form class="div2" action="http://localhost:5501" method="post" align="center" onsubmit="handleSubmit(event)">
         <label for="client">Client:</label>
-        <input type="text" name="client" id="client"><br>
+        <select name="client" id="client">
+            <option value="Default">--------- NULL ---------</option>
+            <option value="abc">ABCDEFG</option>
+            <option value="def">DEF</option>
+            <option value="ghi">GHI</option>
+          </select> <br><br>
+        <!-- <input type="text" name="client" id="client"><br> -->
 
-        <label for="commission">Commission:</label>
+        <label for="commission">Commission Tolerance:</label>
         <input type="text" name="commission" id="commission"><br>
 
-        <label for="gross_amount">Gross Amount:</label>
+        <label for="gross_amount">Gross Amount Tolerance:</label>
         <input type="text" name="gross_amount" id="gross_amount"><br>
 
         <input type="submit" value="Submit">
