@@ -41,6 +41,15 @@
             // If no errors, submit the form
             event.target.submit();
         }
+        function confirmSave() {
+        document.getElementById("saveButton");
+        var choice = confirm("Are the configuration details correct? Do you want to save it?");
+        if (choice == true) {
+            console.log("config saved.")
+        } else {
+            console.log("config not saved.")
+        }
+    }
     </script>
 </head>
 
@@ -63,16 +72,41 @@
         <!-- <input type="text" name="client" id="client"><br> -->
 
         <label for="commission">Commission Tolerance:</label>
-        <input type="text" name="commission" id="commission"><br>
+        <input type="text" name="commission" id="commission"><br><br>
 
         <label for="gross_amount">Gross Amount Tolerance:</label>
-        <input type="text" name="gross_amount" id="gross_amount"><br>
+        <input type="text" name="gross_amount" id="gross_amount"><br><br>
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" onclick="confirmSave">
     </form>
 
     <div class="div1" id="header2">
         <h2> Current Configuration </h2>
+    </div>
+
+    <div class="div3">
+        <table id="portfolioTable">
+            <tr> 
+                <th> S.No </th> 
+                <th> Coin </th>
+                <th> Ticker </th>
+                <th> Buy Price </th>
+                <th> Buy Quantity </th>
+                <th> Current Price </th>
+                <th> Profit </th>
+                <th> Options </th>
+            </tr>
+            <tr> 
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
