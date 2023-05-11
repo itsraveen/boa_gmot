@@ -6,33 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="gmot.css"></link>
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+<!--     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ccxt@1.51.82/dist/ccxt.browser.js"></script>
     <script src=firebasefunc.js></script>
-
+ -->
     <title>GMOT Client UI</title>
 </head>
 
 <body>
     <div class="div1" id="welcomeMsg">
-        <h1> Welcome to Your CPP! </h1>
+        <h1> Welcome to Your Client Config! </h1>
     </div>
 
     <div class="div1" id="header1">
-        <h1> Add Coins </h1>
+        <h1> Input/Update Details </h1>
     </div>
 
     <div class="div2" id="userForm">
-        <label for="coinName"> Coin Name: </label>
-        <input type="text" id="coinName" required="" placeholder="Enter Coin"> <br><br>
-        <label for="ticker"> Ticker: </label>
-        <input type="text" id="ticker" required="" placeholder="Valid Ticker"> <br><br>
-        <label for="price"> Buy Price: </label>
-        <input type="text" id="price" required="" placeholder="Enter Buy Price"> <br><br>
-        <label for="quantity"> Buy Quantity: </label>
-        <input type="text" id="quantity" required="" placeholder="Enter Buy Quantity"> <br><br>
-        <button id="saveButton" v-on:click="savetofs()"> Save </button>
+        <label for="clientName"> Client Name: </label>
+        <input type="text" id="clientName" required="" placeholder="Enter Client Name"> <br><br>
+        <label for="commDiff"> Commission Diff: </label>
+        <input type="number" id="commDiff" required="" placeholder="Commission Difference"> <br><br>
+        <label for="grossDiff"> Gross Amt Diff: </label>
+        <input type="number" id="price" required="" placeholder="Gross Amount Difference"> <br><br>
+<!--         <label for="quantity"> Buy Quantity: </label>
+        <input type="text" id="quantity" required="" placeholder="Enter Buy Quantity"> <br><br> -->
+        <button id="saveButton" v-on:click="savetofs()"> Submit </button>
     </div>
 
     <div class="div1" id="header2">
@@ -43,30 +43,30 @@
         <table id="portfolioTable">
             <tr> 
                 <th> S.No </th> 
-                <th> Coin </th>
-                <th> Ticker </th>
-                <th> Buy_Price </th>
-                <th> Buy_Quantity </th>
-                <th> Current_Price </th>
-                <th> Profit </th>
-                <th> Options </th>
+                <th> Client </th>
+                <th> Commission Diff </th>
+                <th> Gross Amt Diff </th>
+                <th> Date </th>
+                <th> Status </th>
+<!--                 <th> Profit </th>
+                <th> Options </th> -->
             </tr>
             <tr> 
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
+                <td> 01 </td>
+                <td> clientName </td>
+                <td> commDiff </td>
+                <td> grossDiff </td>
+                <td> 11/05/2023 </td>
+                <td> "Pending Approval" </td>
+<!--                 <td> </td>
+                <td> </td> -->
             </tr>
         </table>
     </div>
 
-    <div class="div1" id="totalProfit">
+<!--     <div class="div1" id="totalProfit">
         <h2> Your Total Profit is: XX$ </h2>
-    </div>
+    </div> -->
     
 </body>
 <body>
