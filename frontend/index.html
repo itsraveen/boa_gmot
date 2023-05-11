@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="gmot.css"></link>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ccxt@1.51.82/dist/ccxt.browser.js"></script>
+    <script src=firebasefunc.js></script>
+
+    <title>GMOT Client UI</title>
+</head>
+
+<body>
+    <div class="div1" id="welcomeMsg">
+        <h1> Welcome to Your CPP! </h1>
+    </div>
+
+    <div class="div1" id="header1">
+        <h1> Add Coins </h1>
+    </div>
+
+    <div class="div2" id="userForm">
+        <label for="coinName"> Coin Name: </label>
+        <input type="text" id="coinName" required="" placeholder="Enter Coin"> <br><br>
+        <label for="ticker"> Ticker: </label>
+        <input type="text" id="ticker" required="" placeholder="Valid Ticker"> <br><br>
+        <label for="price"> Buy Price: </label>
+        <input type="text" id="price" required="" placeholder="Enter Buy Price"> <br><br>
+        <label for="quantity"> Buy Quantity: </label>
+        <input type="text" id="quantity" required="" placeholder="Enter Buy Quantity"> <br><br>
+        <button id="saveButton" v-on:click="savetofs()"> Save </button>
+    </div>
+
+    <div class="div1" id="header2">
+        <h2> Current Portfolio </h2>
+    </div>
+
+    <div class="div3">
+        <table id="portfolioTable">
+            <tr> 
+                <th> S.No </th> 
+                <th> Coin </th>
+                <th> Ticker </th>
+                <th> Buy_Price </th>
+                <th> Buy_Quantity </th>
+                <th> Current_Price </th>
+                <th> Profit </th>
+                <th> Options </th>
+            </tr>
+            <tr> 
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="div1" id="totalProfit">
+        <h2> Your Total Profit is: XX$ </h2>
+    </div>
+    
+</body>
+<body>
+    
+</body>
+</html>
