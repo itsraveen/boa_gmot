@@ -2,6 +2,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import urllib.parse
 import json
 
+
 class RequestHandler(BaseHTTPRequestHandler):
     def do_POST(self):
         content_length = int(self.headers["Content-Length"])
@@ -16,17 +17,15 @@ class RequestHandler(BaseHTTPRequestHandler):
         print("Commission:", commission)
         print("Gross Amount:", gross_amount)
 
-        clientCommission = 0
-        clientGrossAmount = 0
         clientCommissionTolerance = 0
         clientGrossAmountTolerance = 0
 
-        if abs(clientCommission - int(commission)) > clientCommissionTolerance:
+        if abs(int(commission)) > clientCommissionTolerance:
             error_message = "Commission exceeds the client's commission."
             self.send_error_response(error_message)
             return
 
-        if abs(clientGrossAmount - int(gross_amount)) > clientGrossAmountTolerance:
+        if abs(int(gross_amount)) > clientGrossAmountTolerance:
             error_message = "Gross amount exceeds the client's gross amount."
             self.send_error_response(error_message)
             return
