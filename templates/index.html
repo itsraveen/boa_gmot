@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="gmot.css"></link>
+    <title>GMOT Client UI</title>
+    <style>
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            var client = document.getElementById("client").value;
+            var commission = document.getElementById("commission").value;
+            var grossAmount = document.getElementById("gross_amount").value;
+
+            // Perform client-side validation
+            var clientCommission = 0;
+            var clientGrossAmount = 0;
+            var clientCommissionTolerance = 0;
+            var clientGrossAmountTolerance = 0;
+
+            if (Math.abs(clientCommission - parseInt(commission)) > clientCommissionTolerance) {
+                window.location.href = "error.html?message=Commission exceeds the client's commission.";
+                return;
+            }
+
+            if (Math.abs(clientGrossAmount - parseInt(grossAmount)) > clientGrossAmountTolerance) {
+                window.location.href = "error.html?message=Gross amount exceeds the client's gross amount.";
+                return;
+            }
+
+            // If no errors, submit the form
+            event.target.submit();
+        }
+    </script>
+</head>
+
+<body>
+    <div class="div1" id="welcomeMsg">
+        <h1> Welcome to Your Client Config! </h1>
+    </div>
+
+    <div class="div1" id="header1">
+        <h1> Input/Update Details </h1>
+    </div>
+    <form class="div2" action="http://localhost:5501" method="post" align="center" onsubmit="handleSubmit(event)">
+        <label for="client">Client:</label>
+        <input type="text" name="client" id="client"><br>
+
+        <label for="commission">Commission:</label>
+        <input type="text" name="commission" id="commission"><br>
+
+        <label for="gross_amount">Gross Amount:</label>
+        <input type="text" name="gross_amount" id="gross_amount"><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div class="div1" id="header2">
+        <h2> Current Configuration </h2>
+    </div>
+</body>
+</html>

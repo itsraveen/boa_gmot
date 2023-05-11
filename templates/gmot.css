@@ -1,0 +1,63 @@
+.div1 {
+    background: #012169;
+    color: #ffff;
+    text-align: center;
+    margin: 10px 10px 10px 10px;
+    border: 3px solid darkblue;
+    border-radius: 10px;
+}
+
+label {
+    display: inline-block;
+    text-align: right;
+    width: 100px;
+}
+
+.div2 {
+    background: beige;
+    margin: 10px 10px 10px 10px;
+    border: 3px solid darkgoldenrod;
+    border-radius: 10px;
+    padding: 15px 10px 15px 10px;
+}
+
+#userForm {
+    text-align: center;     
+}
+
+#portfolioTable {
+    border-collapse: collapse;
+    text-align: center; 
+    margin: 10px 10px 10px 10px;
+    padding: 15px 10px 15px 10px;
+    width: 99%;
+    background-color: beige;
+    border-radius: 25px;
+}
+
+th, td {
+    border: 3px solid darkgoldenrod;
+    text-align: center;
+    border-radius: 25px;
+}
+
+input:hover {
+    box-shadow: 3px 3px #e31837;
+    border-radius: 5px
+}
+
+button.bwt {
+    color: white;
+    background-color: black;
+}
+
+.bwt:hover {
+    box-shadow: 3px 3px #e31837;
+    border-radius: 1px;
+    outline: #f50328;
+}
+
+#totalProfit {
+    font-size: 1.5em;
+    font-weight: 700;
+}
