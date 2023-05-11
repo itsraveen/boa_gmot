@@ -19,24 +19,8 @@
             event.preventDefault();
 
             var client = document.getElementById("client").value;
-            var commission = document.getElementById("commission").value;
-            var grossAmount = document.getElementById("gross_amount").value;
-
-            // Perform client-side validation
-            var clientCommission = 0;
-            var clientGrossAmount = 0;
-            var clientCommissionTolerance = 0;
-            var clientGrossAmountTolerance = 0;
-
-            if (Math.abs(clientCommission - parseInt(commission)) > clientCommissionTolerance) {
-                window.location.href = "error.html?message=Commission exceeds the client's commission.";
-                return;
-            }
-
-            if (Math.abs(clientGrossAmount - parseInt(grossAmount)) > clientGrossAmountTolerance) {
-                window.location.href = "error.html?message=Gross amount exceeds the client's gross amount.";
-                return;
-            }
+            var clientCommissionTolerance = document.getElementById("commission").value;
+            var clientGrossAmountTolerance = document.getElementById("gross_amount").value;
 
             // If no errors, submit the form
             event.target.submit();

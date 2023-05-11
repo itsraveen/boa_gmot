@@ -1,6 +1,7 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import urllib.parse
 import json
+import sqlite3
 
 
 class RequestHandler(BaseHTTPRequestHandler):
@@ -10,46 +11,26 @@ class RequestHandler(BaseHTTPRequestHandler):
         form_data = urllib.parse.parse_qs(post_data)
 
         client = form_data["client"][0]
-        commission = form_data["commission"][0]
-        gross_amount = form_data["gross_amount"][0]
+        clientCommissionTolerance = form_data["commission"][0]
+        clientGrossAmountTolerance = form_data["gross_amount"][0]
 
-        print("Client:", client)
-        print("Commission:", commission)
-        print("Gross Amount:", gross_amount)
+        #print("Client:", client)
+        #print("Commission:", clientCommissionTolerance)
+        #print("Gross Amount:", clientGrossAmountTolerance)
 
-        clientCommissionTolerance = 0
-        clientGrossAmountTolerance = 0
+        # Connect to the database
+        conn = sqlite3.connect("database.db")
+        cursor = conn.cursor()
 
-        if abs(int(commission)) > clientCommissionTolerance:
-            error_message = "Commission exceeds the client's commission."
-            self.send_error_response(error_message)
-            return
-
-        if abs(int(gross_amount)) > clientGrossAmountTolerance:
-            error_message = "Gross amount exceeds the client's gross amount."
-            self.send_error_response(error_message)
-            return
-
-        print("Client:", client)
-        print("Commission:", commission)
-        print("Gross Amount:", gross_amount)
-
-        self.send_success_response()
-
-    def send_success_response(self):
-        self.send_response(200)
-        self.send_header("Content-type", "application/json")
-        self.end_headers()
-        response_data = json.dumps({"status": "success"})
-        self.wfile.write(response_data.encode("utf-8"))
-
-    def send_error_response(self, error_message):
-        self.send_response(400)
-        self.send_header("Content-type", "application/json")
-        self.end_headers()
-        response_data = json.dumps({"status": "error", "message": error_message})
-        self.wfile.write(response_data.encode("utf-8"))
-
+        # Specify the values to be inserted into the database
+        val = (client, clientCommissionTolerance, clientGrossAmountTolerance)
+        
+        # Prepare the SQL query to insert data
+        sql = "INSERT INTO client_config (client, commission, gross_amount) VALUES (?, ?, ?)"
+        cursor.execute(sql, val)
+        
+        # Commit the changes to the database
+        conn.commit()
 
 def run_server():
     server_address = ("", 5501)
