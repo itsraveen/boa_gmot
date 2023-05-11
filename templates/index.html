@@ -49,7 +49,17 @@
         } else {
             console.log("config not saved.")
         }
+
+        function approve() {
+        document.getElementById("approval");
+        var choice = confirm("Approve this configuration change?");
+        if (choice == true) {
+            console.log("config saved.")
+        } else {
+            console.log("config not saved.")
+        }
     }
+}
     </script>
 </head>
 
@@ -65,9 +75,9 @@
         <label for="client">Client:</label>
         <select name="client" id="client">
             <option value="Default">--------- NULL ---------</option>
-            <option value="abc">ABCDEFG</option>
-            <option value="def">DEF</option>
-            <option value="ghi">GHI</option>
+            <option value="abc">ADMIN</option>
+            <option value="def">BOFA</option>
+            <option value="ghi">CODING</option>
           </select> <br><br>
         <!-- <input type="text" name="client" id="client"><br> -->
 
@@ -81,30 +91,40 @@
     </form>
 
     <div class="div1" id="header2">
-        <h2> Current Configuration </h2>
+        <h2> Configuration History </h2>
     </div>
 
     <div class="div3">
         <table id="portfolioTable">
             <tr> 
                 <th> S.No </th> 
-                <th> Coin </th>
-                <th> Ticker </th>
-                <th> Buy Price </th>
-                <th> Buy Quantity </th>
-                <th> Current Price </th>
-                <th> Profit </th>
-                <th> Options </th>
+                <th> Client </th>
+                <th> Commission Tolerance </th>
+                <th> Gross Amt Tolerance </th>
+                <th> Last Updated </th>
+                <th> Submitted by </th>
+                <th> Status </th>
+                <th> Approval </th>
             </tr>
             <tr> 
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
+                <td> 01 </td>
+                <td> ADMIN </td>
+                <td> 8.8 </td>
+                <td> 100 </td>
+                <td> 11/05/2023 </td>
+                <td> admin111 </td>
+                <td> Pending Approval </td>
+                <td> <button type="approval" value="Approval" onclick="approve"> Approve </button> </td>
+            </tr>
+            <tr> 
+                <td> 02 </td>
+                <td> ADMIN </td>
+                <td> 20 </td>
+                <td> 101 </td>
+                <td> 10/05/2023 </td>
+                <td> admin111 </td>
+                <td> Approved </td>
+                <td> admin123 </td>
             </tr>
         </table>
     </div>

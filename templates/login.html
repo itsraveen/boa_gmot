@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="gmot.css"></link>
+
+    <title>Login</title>
+</head>
+<body>
+    <div class="div1" id="login">
+        <h1> Login Page </h1>
+    </div>
+
+    <div class="div2" align = "center">
+        <form id="login" method="get" action="index.html">
+              <label for="loginEmail"> Email: </label>
+              <input type="text" id="loginEmail" required="" placeholder="admin@gmail.com">  <br><br>
+              <label for="loginPassword"> Password: </label>
+              <input type="Password" id="loginPassword" required="" placeholder="password">  <br><br>
+              <button id="loginButton" onclick="auth()"> Log In </button> <br><br>    
+              <input type="checkbox" id="check">    
+              <span>Remember me</span>    
+              <br><br>    
+              <a href="#">Forgot Password</a> <br>
+              <a href="signup.html">Sign Up Now</a>   
+          </form>       
+      </div>  
+
+<body>
+<script>
+function auth() {
+    var email = document.getElementById("loginEmail").value;
+    var password = document.getElementById("loginPassword").value;
+
+    if (email === "admin@gmail.com" && password === "password") {
+        window.location.replace("./index.html");
+        //alert("You Are a ADMIN");
+
+    } else {
+        alert("Invalid Login Details");
+        return;
+    }
+
+}
+</script>
